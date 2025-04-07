@@ -8,3 +8,4 @@
     <!-- Immagine con asset() -->
     <img src="{{ asset('images/inspire.png') }}" alt="Biciclette">
 </main>
+    
