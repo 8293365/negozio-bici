@@ -19,7 +19,21 @@
         &nbsp; Benvenuto 
         <span>
             <!-- Accesso alla sessione diverso in Laravel -->
-            {{ session('utente.nome') }} ({{ session('utente.ruolo') }})
+
+            @if(Session::has('utente'))
+                @php
+                    $utente = Session::get('utente');
+                    @endphp
+                @if($utente['nome'] == 'anonimo')
+                {{$utente->nome}} ({{$utente->ruolo}})
+                &nbsp;
+
+              
+            @if($utente->nome != 'anonimo' )
+                <a href="{{ route('esci') }}">esci</a>
+                <a href="{{ route('miei-ordini') }}">Miei ordini</a>
+            @endif
+            
         </span>
         
         &nbsp;
